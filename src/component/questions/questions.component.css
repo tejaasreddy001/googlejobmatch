@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.questions {
+    background-color: #1c1d26;
+    display: flex;
+    margin-top: 25vh;
+    justify-content: space-evenly;
+    height: 100vh;
+    color:#ffff;
+    font-family: "Montserrat";
+    font-weight: 100;
+    font-size: 20px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+h1 {
+  font-family: "Montserrat";
+  font-weight: 100;
+  font-size: 40px;
+}
+
+.questions ul {
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+  list-style-type: none;
+}
+
+.questions form {
+    display: flex;
+    flex-direction: column;
+    width: 40vh;
+    gap: 15px;
+  }
+  
+  .questions label {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .questions input, .questions textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .questions input:focus, .questions textarea:focus {
+    border-color: #e44c65;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+  }
+  
+  .questions textarea {
+    resize: vertical; 
+    min-height: 120px;
+  }
+  
+  .questions button {
+    padding: 12px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #e44c65;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .questions button:hover {
+    background-color: #e44c65;
+  }
+  
+  .questions li {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-family: "Montserrat";
+    border-radius: 4px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: #333;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .questions div[ngIf] {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9em;
+  }
+
+textarea {
+ background-color: #fff;
+}

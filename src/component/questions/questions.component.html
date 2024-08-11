@@ -1,0 +1,21 @@
+<div class="questions">
+  <h1>Add your question</h1>
+  <form (ngSubmit)="createQuestion()">
+    <input id="question" [(ngModel)]="question" name="question" required>
+    <button type="submit">Add Question</button>
+  </form>
+
+  <div *ngIf="error">{{ error }}</div>
+
+  <ul>
+    <li *ngFor="let q of questions; let i = index" (click)="onQuestionClick(q, i)">
+      {{ q }}
+    </li>
+  </ul>
+
+  <div *ngIf="selectedQuestion !== null">
+    <textarea [(ngModel)]="selectedQuestionContent" disabled></textarea>
+    <button (click)="deleteQuestion(selectedQuestionIndex)">Delete Question</button>
+  </div>
+</div>
+

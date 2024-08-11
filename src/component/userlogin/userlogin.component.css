@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+header .header{
+  background-color: #fff;
+  height: 45px;
+  animation: fadeInUp 1s ease-out;
+}
+header a img{
+  width: 134px;
+  margin-top: 4px;
+  animation: fadeInUp 1s ease-out;
+}
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin-top: -10vh;
+  background-color: #1c1d26;
+}
+.login-page .form .login{
+  margin-top: -25px;
+  margin-bottom: 25px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.form .login-form {
+  margin-top: 20px;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #ffffff13;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 50px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 250px;
+  border: 20px;
+  margin: 0 auto 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-color: #e44c65;
+  background-image: linear-gradient(#e44c65);
+  width: 50%;
+  border: 0;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  padding: 20px;
+}
+button:hover {
+  background-color: #dc3854;
+  transform: scale(1.05); 
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #e44c65;
+  text-decoration: none;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+body {
+  background-color: #e44c65;
+  background-image: linear-gradient(45deg,#328f8a,#08ac4b);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.form {
+  border-radius: 15px; 
+}
+
+.form input,
+.form button {
+  border-radius: 8px;
+}
+
+h3 {
+  font-family: "Montserrat";
+  color: #ffff;
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

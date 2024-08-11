@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.Home {
+    background-color: #1c1d26;
+    min-height: 100vh;
+    animation: fadeInUp 1s ease-out;
+}
+
+
+@media (max-width: 1199px) {
+  .footer {
+    left: -100%;
+  }
+}
+
+.Intro {
+  display: block;
+  color: white;
+  text-align: center;
+  animation: fadeInUp 1s ease-out; 
+}
+
+h1{
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 40px;
+}
+
+h2{
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 30px;
+}
+
+h3 {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 20px;
+}
+
+p {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 20px;
+}
+
+li {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 20px;
+}
+
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.JobResume {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 10px;
+    
+}
+
+.about-section {
+  background-color: #1c1d26;
+  color: #ffffff;
+}
+
+.Job {
+  width: 20%;
+  height: 50vh;
+  flex: 2 1 auto;
+  margin: 10px;
+  animation: fadeIn 0.5s ease-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff13;
+  font-family: "Montserrat";
+  color: #edf0f1;
+  animation: fadeInUp 1s ease-out;
+}
+
+
+.Resume {
+  width: 20%;
+  height: 50vh;
+  flex: 2 1 auto;
+  margin: 10px;
+  animation: fadeIn 0.5s ease-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff13;
+  font-family: "Montserrat";
+  color: #ffffff;
+  animation: fadeInUp 1s ease-out;
+}
+
+
+.JobMatch {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; 
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  button {
+    border-radius: 2px;
+    background-color: #e44c65; 
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  button:hover {
+    background-color: #dc3854; 
+    transform: scale(1.05); 
+  }
+
+  footer.footer {
+    background-color: #1c1d26; 
+    padding: 20px; 
+    animation: fadeInUp 1s ease-out;
+}
+
+.icons {
+    display: flex;
+    justify-content: center; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.icons li {
+    margin: 0 15px; 
+}
+
+.icons svg {
+    width: 24px; 
+    height: 24px; 
+    fill: #ffffff;
+    transition: fill 0.3s ease; 
+}
+
+.icons svg:hover {
+    fill: #e44c65; 
+}
+
+.expandable-section {
+  color: white;
+  margin-bottom: 15px;
+  border: 1px solid #1c1d26;
+  border-radius: 5px;
+  background-color: #1c1d26;
+  transition: background-color 0.3s;
+}
+
+.expandable-header {
+  color: white;
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #1c1d26;
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px 5px 0 0;
+}
+
+.expandable-header:hover {
+  background-color: #1c1d26;
+}
+
+.section-content {
+  color: #ffffff;
+  padding: 10px;
+  background-color: #1c1d26;
+  border-radius: 0 0 5px 5px;
+}
+
+.loading-indicator{
+  color: white;
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.preresult{
+  font-family: "Montserrat";
+  color: white;
+}
+
+.preresult p {
+  color: white;
+}
+
+.about-section {
+  background-color: #1c1d26;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.about-section h1 {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.about-section p, .about-section h2 {
+  font-family: "Montserrat";
+  font-weight: 200;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+}
+
+.side-by-side {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+}
+
+.upload-docs, .custom-questions {
+  flex: 1;
+  background-color: #2c2e36;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.upload-docs h2, .custom-questions h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.upload-docs ul, .custom-questions p {
+  font-size: 16px;
+}
+
+.about-section {
+  background-color: #1c1d26;
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.about-section h1 {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 30px; 
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 20px; 
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.section {
+  flex: 1;
+  background-color: #2c2e36;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section h2 {
+  font-family: "Montserrat";
+  font-weight: 400; 
+  font-size: 20px; 
+  margin-bottom: 15px;
+}
+
+.section ul, .section p {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.section ul {
+  padding-left: 20px; 
+}
+
+
+.section.small {
+  flex: 0 0 200px; 
+}
+
+.preresult p {
+  color: #dc3854;
+}
+
+@media (max-width: 768px) {
+  .about-content {
+      flex-direction: column;
+  }
+  .section.small {
+      flex: 1 1 auto; 
+  }
+}
