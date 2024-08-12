@@ -2,7 +2,7 @@
     <div class="form">
       <div class="login">
         <div class="login-header">  
-          <h3>User Login</h3>
+          <h2>User Login</h2>
         </div>
         <form class="login-form" (ngSubmit)="login()">
           <div class="form-group">
@@ -12,7 +12,7 @@
             <input type="password" id="password" placeholder="Enter your password" [(ngModel)]="password" name="password" required>
           </div>
           <button type="submit">Login</button>
-          <p class="message">Not registered? <a href="/signup">Create an account</a></p>
+          <p class="message" style="font-size: 15px;">Not registered? <a href="/signup">Create an account</a></p>
         </form>
       </div>
     </div>

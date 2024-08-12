@@ -1,20 +1,42 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 header .header{
-  background-color: #fff;
+  background-color: #ffffff; 
   height: 45px;
 }
 header a img{
   width: 134px;
   margin-top: 4px;
 }
+
+h1 {
+  font-family: "Montserrat";
+  color: black;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+h2 {
+  font-family: "Montserrat";
+  color: black;
+  font-size: 25px;
+  font-weight: 200;
+}
+
+h3 {
+  font-family: "Montserrat";
+  color: black;
+  font-size: 20px;
+  font-weight: 200;
+}
+
 .signup-page {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: -10vh;
   height: 100vh; 
-  background-color: #1c1d26;
+  background-color: #ffffff; 
 }
 .signup-page .form .login{
   margin-top: -25px;
@@ -24,7 +46,7 @@ header a img{
 .form {
   position: relative;
   z-index: 1;
-  background: #ffffff13;
+  background: #ffffff; 
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 50px;
@@ -37,7 +59,7 @@ header a img{
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #ffffff; 
   width: 250px;
   border: 20px;
   margin: 0 auto 20px;
@@ -57,7 +79,7 @@ header a img{
   background-image: linear-gradient(#e44c65);
   width: 50%;
   border: 0;
-  color: #FFFFFF;
+  color: black;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -72,7 +94,7 @@ button:hover {
 
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: black;
   font-size: 12px;
 }
 .form .message a {
@@ -107,7 +129,7 @@ body {
 
 h3 {
   font-family: "Montserrat";
-  color: #ffff;
+  color: black;
 }
 
 @keyframes fadeInUp {

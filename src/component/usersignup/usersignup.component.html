@@ -2,7 +2,7 @@
     <div class="form">
       <div class="signup">
         <div class="signup-header"> 
-          <h3>Registration</h3>
+          <h2>Registration</h2>
         </div>
       <form class="signup-form" (ngSubmit)="signup()">
         <div class="form-group">
@@ -15,7 +15,7 @@
           <input type="password" id="password" placeholder="Enter your password" [(ngModel)]="password" name="password" required>
         </div>
         <button type="submit">Register</button>
-        <div class="message">
+        <div class="message" style="font-size: 15px;">
           <p>Already have an account? <a href="/login">Login now</a></p>
         </div>
       </form>

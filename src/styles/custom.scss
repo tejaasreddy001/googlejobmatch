@@ -1,0 +1,24 @@
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@include mat.core();
+
+$primary: mat.define-palette(mat.$pink-palette, A200);
+$accent: mat.define-palette(mat.$indigo-palette);
+$warn: mat.define-palette(mat.$red-palette);
+
+$app-font-family: "Montserrat";
+$app-font-size: 20px;
+
+
+$custom-theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+));
+
+
+@include mat.all-component-themes($custom-theme);
+
+

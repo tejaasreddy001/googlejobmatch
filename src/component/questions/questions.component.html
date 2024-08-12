@@ -1,21 +1,25 @@
+
 <div class="questions">
-  <h1>Add your question</h1>
+  <mat-list>
+  <h2>Add your question</h2>
   <form (ngSubmit)="createQuestion()">
     <input id="question" [(ngModel)]="question" name="question" required>
     <button type="submit">Add Question</button>
   </form>
+</mat-list>
+  <div *ngIf="error" class="error-message">{{ error }}</div>
 
-  <div *ngIf="error">{{ error }}</div>
-
-  <ul>
-    <li *ngFor="let q of questions; let i = index" (click)="onQuestionClick(q, i)">
-      {{ q }}
-    </li>
-  </ul>
-
-  <div *ngIf="selectedQuestion !== null">
-    <textarea [(ngModel)]="selectedQuestionContent" disabled></textarea>
-    <button (click)="deleteQuestion(selectedQuestionIndex)">Delete Question</button>
-  </div>
+  <mat-accordion>
+    <mat-expansion-panel 
+      *ngFor="let q of questions; let i = index"
+      (opened)="onQuestionClick(q, i)"
+      (closed)="resetSelectedQuestion()">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ q }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <button mat-button (click)="deleteQuestion(i)">Delete</button>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>
-

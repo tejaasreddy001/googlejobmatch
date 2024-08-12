@@ -16,7 +16,7 @@ header a img{
   align-items: center;
   height: 100vh; 
   margin-top: -10vh;
-  background-color: #1c1d26;
+  background-color: white; 
 }
 .login-page .form .login{
   margin-top: -25px;
@@ -31,7 +31,7 @@ header a img{
 .form {
   position: relative;
   z-index: 1;
-  background: #ffffff13;
+  background: #ffffff; 
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 50px;
@@ -41,7 +41,7 @@ header a img{
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #ffffff; 
   width: 250px;
   border: 20px;
   margin: 0 auto 20px;
@@ -57,7 +57,7 @@ header a img{
   background-image: linear-gradient(#e44c65);
   width: 50%;
   border: 0;
-  color: #FFFFFF;
+  color: black;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -70,7 +70,7 @@ button:hover {
 }
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: black;
   font-size: 12px;
 }
 .form .message a {
@@ -99,9 +99,25 @@ body {
   border-radius: 8px;
 }
 
+h1 {
+  font-family: "Montserrat";
+  color: black;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+h2 {
+  font-family: "Montserrat";
+  color: black;
+  font-size: 25px;
+  font-weight: 200;
+}
+
 h3 {
   font-family: "Montserrat";
-  color: #ffff;
+  color: black;
+  font-size: 20px;
+  font-weight: 200;
 }
 
 @keyframes fadeInUp {

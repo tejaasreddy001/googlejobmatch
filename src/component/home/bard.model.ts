@@ -3,5 +3,9 @@ export interface bard {
     user_name: string;
     result: string;
     presult: string;
+    match:string;
+    strongmatch:string[];
+    moderatematch:string[];
+    missing:string[];
   }
   

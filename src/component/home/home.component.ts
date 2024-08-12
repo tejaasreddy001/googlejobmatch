@@ -1,19 +1,31 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { SharedDataService } from '../../service/shared-data.service';
 import { FetchGeminiService } from '../../service/fetch-gemini.service';
-import { FormsModule } from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { bard } from './bard.model';
 import { CommonModule } from '@angular/common';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MatTabsModule, MatStepperModule, ReactiveFormsModule, MatFormFieldModule,
+    MatInputModule, MatButtonModule,MatProgressSpinnerModule, MatListModule, MatDividerModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  readonly panelOpenState = signal(false);  
+
   userName: string | null = null;
   userId: string | null = null;
   jobText: string = 'Copy paste the Job Description Here..';
@@ -28,13 +40,21 @@ export class HomeComponent {
   expandedSection: number | null = null;
 
 
-  constructor(private sharedDataService: SharedDataService, private geminiservice: FetchGeminiService) {
+  match:number | null = null;
+  strongmatch:string[] = [];
+  moderatematch:string[] = [];
+  missing:string[] = [];
+
+
+  constructor(private sharedDataService: SharedDataService, private geminiservice: FetchGeminiService, private _formBuilder: FormBuilder) {
     console.log('In constructor of home page');
     this.sharedDataService.userName$.subscribe(userName => {
       console.log('UserName from SharedDataService:', userName);
       this.userName = userName;
     });
   }
+  firstFormGroup: FormGroup = this._formBuilder.group({firstCtrl: ['']});
+  secondFormGroup: FormGroup = this._formBuilder.group({secondCtrl: ['']});
 
   ngOnInit(){
     console.log("in home ngOnInit");
@@ -60,6 +80,17 @@ export class HomeComponent {
         response => {
           this.result = response.result;
           this.presult = response.presult;
+          
+          this.match = parseFloat(response.match);
+          this.strongmatch = response.strongmatch;
+          this.moderatematch = response.moderatematch;
+          this.missing = response.missing;
+
+          console.log(this.match)
+          console.log(this.strongmatch)
+          console.log(this.moderatematch)
+          console.log(this.missing)
+
           const { headers, sections } = this.extractContentAndHeaders(this.result);
           this.headers = headers;
           this.sections = sections;

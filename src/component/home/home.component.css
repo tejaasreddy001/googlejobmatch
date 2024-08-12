@@ -1,8 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 .Home {
-    background-color: #1c1d26;
+    background-color: #ffffff; 
     min-height: 100vh;
     animation: fadeInUp 1s ease-out;
+}
+
+.typing-container {
+  display: inline-flex;
+  /* align-items: center;   */
+}
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 5px;
+  animation: typing 0.8s steps(6, end), blink 0.75s step-end infinite;
+  border-right: 0.15em solid #e44c65; /* Optional: Add a cursor effect */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 6ch; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #e44c65; }
 }
 
 
@@ -12,9 +36,10 @@
   }
 }
 
+
 .Intro {
   display: block;
-  color: white;
+  color: black;
   text-align: center;
   animation: fadeInUp 1s ease-out; 
 }
@@ -22,13 +47,13 @@
 h1{
   font-family: "Montserrat";
   font-weight: 200;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 h2{
   font-family: "Montserrat";
   font-weight: 200;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 h3 {
@@ -46,7 +71,7 @@ p {
 li {
   font-family: "Montserrat";
   font-weight: 200;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 
@@ -69,7 +94,7 @@ li {
 }
 
 .about-section {
-  background-color: #1c1d26;
+  background-color: #ffffff; 
   color: #ffffff;
 }
 
@@ -80,12 +105,18 @@ li {
   margin: 10px;
   animation: fadeIn 0.5s ease-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff13;
+  background-color: #DCDCDC;
   font-family: "Montserrat";
-  color: #edf0f1;
+  color: black;
   animation: fadeInUp 1s ease-out;
 }
 
+mat-tab {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
 
 .Resume {
   width: 20%;
@@ -94,12 +125,43 @@ li {
   margin: 10px;
   animation: fadeIn 0.5s ease-out;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff13;
+  background-color: #DCDCDC;
   font-family: "Montserrat";
-  color: #ffffff;
+  color: black;
   animation: fadeInUp 1s ease-out;
 }
 
+
+.results-container {
+  margin-top: 10px;
+  color: black;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px; /* Adjust the spacing between items */
+  flex-wrap: wrap; /* Allow items to wrap if they don't fit in one row */
+}
+
+.results-container > div {
+  flex: 1; /* Allow items to grow and shrink evenly */
+  min-width: 150px; /* Adjust based on your design */
+}
+
+.progress-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.match-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.match-list ul {
+  /* list-style-type: none; */
+  padding: 0;
+  margin: 0;
+}
 
 .JobMatch {
 
@@ -127,7 +189,7 @@ li {
   }
 
   footer.footer {
-    background-color: #1c1d26; 
+    background-color: #e44c65; 
     padding: 20px; 
     animation: fadeInUp 1s ease-out;
 }
@@ -156,37 +218,34 @@ li {
 }
 
 .expandable-section {
-  color: white;
+  color: black;
+  background-color: #ffffff; 
   margin-bottom: 15px;
-  border: 1px solid #1c1d26;
-  border-radius: 5px;
-  background-color: #1c1d26;
   transition: background-color 0.3s;
 }
 
+
 .expandable-header {
-  color: white;
+  color: black;
   margin: 0;
   padding: 10px;
   cursor: pointer;
-  background-color: #1c1d26;
-  border-bottom: 1px solid #ddd;
-  border-radius: 5px 5px 0 0;
+  background-color: #DCDCDC;
 }
 
 .expandable-header:hover {
-  background-color: #1c1d26;
+  background-color: #DCDCDC;
 }
 
 .section-content {
   color: #ffffff;
   padding: 10px;
-  background-color: #1c1d26;
+  background-color: #ffffff; 
   border-radius: 0 0 5px 5px;
 }
 
 .loading-indicator{
-  color: white;
+  color: black;
   display: flex;
   margin-top: 10px;
   justify-content: center;
@@ -194,16 +253,16 @@ li {
 
 .preresult{
   font-family: "Montserrat";
-  color: white;
+  color: black;
 }
 
 .preresult p {
-  color: white;
+  color: black;
 }
 
 .about-section {
-  background-color: #1c1d26;
-  color: #ffffff;
+  background-color: #ffffff; 
+  color: black;
   padding: 20px;
   border-radius: 5px;
   margin-top: 20px;
@@ -215,12 +274,25 @@ li {
   font-weight: 200;
   font-size: 30px;
   margin-bottom: 10px;
+  color: black;
 }
 
-.about-section p, .about-section h2 {
+.about-section ul, .about-section li{
   font-family: "Montserrat";
   font-weight: 200;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: black;
 }
+
+
+.about-section mat-tab{
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
 
 .about-content {
   display: flex;
@@ -236,40 +308,28 @@ li {
 
 .upload-docs, .custom-questions {
   flex: 1;
-  background-color: #2c2e36;
+  background-color: #ffffff; 
   padding: 15px;
   border-radius: 5px;
 }
 
-.upload-docs h2, .custom-questions h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
 .upload-docs ul, .custom-questions p {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .about-section {
-  background-color: #1c1d26;
-  color: #ffffff;
+  background-color: #ffffff; 
+  color: black;
   padding: 20px;
   border-radius: 5px;
   margin-top: 20px;
   animation: fadeInUp 1s ease-out;
 }
 
-.about-section h1 {
-  font-family: "Montserrat";
-  font-weight: 200;
-  font-size: 30px; 
-  margin-bottom: 20px;
-}
-
 .about-section p {
   font-family: "Montserrat";
   font-weight: 200;
-  font-size: 20px; 
+  font-size: 18px; 
   line-height: 1.6;
   margin-bottom: 15px;
 }
@@ -282,7 +342,7 @@ li {
 
 .section {
   flex: 1;
-  background-color: #2c2e36;
+  background-color: #ffffff; 
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -290,8 +350,8 @@ li {
 
 .section h2 {
   font-family: "Montserrat";
-  font-weight: 400; 
-  font-size: 20px; 
+  font-weight: 200; 
+  font-size: 25px; 
   margin-bottom: 15px;
 }
 
@@ -324,3 +384,4 @@ li {
       flex: 1 1 auto; 
   }
 }
+

@@ -1,75 +1,113 @@
 
 <div class="Home">
-    
+  <mat-list>
     <div class="Intro">
-      <h1>Welcome {{userName}} To JobMatch</h1><br>
-      <h1>Save Time and Maximize Efficiency!</h1><br>
+      <h1>Welcome {{userName}} To <strong>JobMatch!</strong></h1><br>
+      <h2 style="color: #e44c65;" class="typing-container">
+        Powered by<strong><span class="typing"> Gemini </span></strong>
+      </h2>             
+      <!-- <h2 style="color: #e44c65;">Powered by <strong>Gemini</strong></h2><br> -->
     </div>
     <div class="JobResume">
-        <textarea [(ngModel)]="jobText" class="Job">Job</textarea>
-        <textarea [(ngModel)]="resumeText" class="Resume">Resume</textarea>
+        <textarea [(ngModel)]="jobText" class="Job" style="font-weight: 200;">Job</textarea>
+        <textarea [(ngModel)]="resumeText" class="Resume" style="font-weight: 200;">Resume</textarea>
     </div>
-    
     <div class="JobMatch">
         <button (click)="runJobMatch()">Run Job Match</button>
     </div>
-
+    <mat-divider style="margin-top: 10px;"></mat-divider>
     <div *ngIf="loading" class="loading-indicator">
-        <!-- Loading spinner or message -->
-        <p>Loading, please wait...</p>
+        <mat-spinner style="margin-top: 10px;"></mat-spinner>
       </div>
+
+      <div class="results-container">
+        <div *ngIf="match !== null" class="progress-spinner">
+          <h3><strong>Match: {{ match }}%</strong></h3>
+          <mat-spinner [value]="match" strokeWidth="10" diameter="100" mode="determinate"></mat-spinner>
+        </div>
       
-    <div *ngIf="presult" [innerHTML]="presult" class="preresult"></div>
-    
-    <div *ngFor="let section of sections; let i = index" class="expandable-section">
-        <h2 (click)="toggleSection(i)" class="expandable-header"> 
-            {{ headers[i] }}
-        </h2>
-        <div *ngIf="expandedSection === i" class="section-content">
-          <div [innerHTML]="section"></div>
+        <div *ngIf="strongmatch.length > 0" class="match-list">
+          <h3><strong>Keywords Match</strong></h3>
+          <ul>
+            <li *ngFor="let item of strongmatch">{{ item }}</li>
+          </ul>
+        </div>
+      
+        <div *ngIf="moderatematch.length > 0" class="match-list">
+          <h3><strong>Moderate Keywords Match</strong></h3>
+          <ul>
+            <li *ngFor="let item of moderatematch">{{ item }}</li>
+          </ul>
+        </div>
+      
+        <div *ngIf="missing.length > 0" class="match-list">
+          <h3><strong>Missing Keywords</strong></h3>
+          <ul>
+            <li *ngFor="let item of missing">{{ item }}</li>
+          </ul>
         </div>
       </div>
-
-<div class="about-section">
-    <h1>About</h1>
-    <p>Welcome to our job matching platform! Here’s how it works:</p>
-    
-    <div class="about-content"> 
-        <div class="section small">
-            <h2>Upload Your Documents</h2>
-            <ul>
-                <li><strong>Resume Content:</strong> Upload your resume on the right side.</li>
-                <li><strong>Job Description:</strong> Upload the job description on the left side.</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Custom Questions</h2>
-            <p>Go to the <strong>Questions</strong> tab to add any custom questions you might have.</p>
-        </div>
-        <div class="section">
-            <h2>Run Job Match</h2>
-            <p>Click the <strong>Run Job Match</strong> button to analyze the content.</p>
-        </div>
-        <div class="section">
-            <h2>View Results</h2>
-            <p>The results will be displayed below.</p>
-        </div>
-        <div class="section">
-            <h2>Personal Questions</h2>
-            <p>Above the <strong>About</strong> section, you can find your personal questions answered. Click each section to expand and view detailed results.</p>
-        </div>
-        <div class="section">
-            <h2>Match Details</h2>
-            <ul>
-                <li><strong>Percentage of Match:</strong> View the percentage of match between your resume and the job description.</li>
-                <li><strong>Important Keywords:</strong> See the most important keywords from the job description.</li>
-                <li><strong>Missing Keywords:</strong> Find out which keywords are missing from your resume but are present in the job description.</li>
-            </ul>
-        </div>
+      <div *ngIf="presult" class="expandable-section">
+      <mat-stepper orientation="vertical" style="background-color: white; color: black">
+        <mat-step style="background-color: #DCDCDC; color: black">
+          <ng-template matStepLabel>Resume Details</ng-template>
+          <ng-template matStepContent>
+            <div [innerHTML]="presult"></div>
+          </ng-template>
+        </mat-step>
+        <mat-step *ngFor="let section of sections; let i = index">
+          <ng-template matStepLabel>{{ headers[i] }}</ng-template>
+          <ng-template matStepContent>
+            <div class="expandable-section">
+                <div [innerHTML]="section"></div>
+            </div>
+          </ng-template>
+        </mat-step>
+      </mat-stepper>
+      <mat-divider style="margin-top: 10px;"></mat-divider>
     </div>
-</div>
-
-
+    <div class="about-section">
+      <h1>About</h1>
+      <p>Welcome to our job matching platform! Here’s how it works</p>
+      
+      <mat-tab-group dynamicHeight>
+        <mat-tab label="Upload Your Documents">       
+          <div style="overflow-y: auto; max-height: 500px;">
+            <p><strong>Resume Content:</strong> Upload your resume on the right side of the screen. Make sure your resume is updated with the most recent experiences, skills, and accomplishments to get the best match results.</p>
+            <p><strong>Job Description:</strong> Upload the job description on the left side. Ensure the job description is detailed and up-to-date, as this will be used to find the best alignment with your resume.</p>
+            <p><strong>Tip:</strong> The more specific your job description and resume are, the more accurate your match results will be.</p>
+          </div>
+        </mat-tab>
+        
+        <mat-tab label="Custom Questions">
+          <p>Go to the Questions tab to add any custom questions you might have. These could include specific requirements or preferences for the job. For example, you might want to know if your experience with certain software or methodologies aligns with the job’s needs.</p>
+          <p><strong>Why Customize?</strong> Tailoring these questions helps refine the job match process, allowing the platform to focus on what matters most to you.</p>
+        </mat-tab>
+        
+        <mat-tab label="Run Job Match">
+          <p>Click the <strong>Run Job Match</strong> button to analyze the content. This process will scan both the resume and job description to identify key skills, experiences, and keywords that align.</p>
+          <p><strong>How It Works:</strong> Our advanced algorithms compare your resume with the job description, looking for matches in skills, job titles, responsibilities, and other relevant criteria. This ensures you’re applying to jobs that are the best fit for your qualifications.</p>
+          <p><strong>Get Ready:</strong> The analysis only takes a few moments. Ensure both documents are uploaded correctly before running the match.</p>
+        </mat-tab>
+        
+        <mat-tab label="View Results">
+          <p>The results will be displayed below, showing you how well your resume matches the job description.</p>
+          <p><strong>Understanding the Results:</strong> The match percentage gives you a quick overview of how well your resume aligns with the job. Additionally, you can delve deeper into specific sections to see where your strengths and weaknesses lie.</p>
+          <p>Above the <strong>About</strong> section, you can find your personal questions answered. Click each section to expand and view detailed results. This includes the match analysis, custom question insights, and suggestions for improving your resume.</p>
+          <p><strong>Next Steps:</strong> Based on the results, you can choose to refine your resume further, adjust the job description, or explore other opportunities that might be a better fit.</p>
+        </mat-tab>
+        
+        <mat-tab label="Match Details">
+          <div style="overflow-y: auto; max-height: 500px;">
+            <p><strong>Percentage of Match:</strong> View the percentage of match between your resume and the job description. A higher percentage indicates a closer match, but it’s important to review the details to understand where improvements can be made.</p>
+            <p><strong>Important Keywords:</strong> See the most important keywords from the job description that are present in your resume. These are typically skills, certifications, or job roles that the employer is looking for.</p>
+            <p><strong>Missing Keywords:</strong> Find out which keywords are missing from your resume but are present in the job description. These missing keywords might be critical to the job, and adding them to your resume could increase your chances of being selected.</p>
+            <p><strong>Refinement Suggestions:</strong> Consider revising your resume to include the missing keywords, if they are relevant to your experience. This could significantly improve your match score.</p>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    
   <footer class="footer">
     <ul class="icons">
         <li>
@@ -96,6 +134,8 @@
         </li>
     </ul>
 </footer>
-
-
+</mat-list>
 </div>
+
+<!-- 
+"@angular/material/prebuilt-themes/deeppurple-amber.css", -->

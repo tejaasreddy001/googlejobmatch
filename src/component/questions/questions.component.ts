@@ -1,32 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { QuestionsFetchService } from '../../service/questions-fetch.service';
 import { QuestionsCreateService } from '../../service/questions-create.service';
 import { FormsModule } from '@angular/forms'; 
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { QuestionResponse } from './question.model';
 import { SharedDataService } from '../../service/shared-data.service';
-import { HomeComponent } from '../home/home.component';
 import { QuestionsDeleteService } from '../../service/questions-delete.service';
-import { response } from 'express';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, CommonModule],  // Import FormsModule if needed for forms
+  imports: [HttpClientModule, FormsModule, CommonModule, MatCardModule, MatExpansionModule, MatListModule, MatDividerModule],
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 })
-export class QuestionsComponent{
+export class QuestionsComponent {
+
+  readonly panelOpenState = signal(false);
+
   userName: string | null = null;
   question: string = '';
   userId: string | null = null;
-  questions: string[] = [];  // To hold fetched questions
+  questions: string[] = [];  
   error: string = '';
   selectedQuestion: string | null = null;
   selectedQuestionIndex: number | null = null;
   selectedQuestionContent: string = '';
-  
+
   constructor(
     private questionsFetchService: QuestionsFetchService,
     private questionsCreateService: QuestionsCreateService,
@@ -81,6 +85,13 @@ export class QuestionsComponent{
     this.selectedQuestionIndex = index;
     this.selectedQuestionContent = question;
   }
+
+  resetSelectedQuestion(): void {
+    this.selectedQuestion = null;
+    this.selectedQuestionIndex = null;
+    this.selectedQuestionContent = '';
+  }
+
   deleteQuestion(index: number | null): void {
     if (index !== null && index >= 0 && index < this.questions.length) {
       this.questions.splice(index, 1);
@@ -107,7 +118,7 @@ export class QuestionsComponent{
       .subscribe(
         response => {
           this.questions = response['questions'] || [];
-          this.question = '';  // Clear the input field
+          this.question = '';  
         },
         error => {
           this.error = 'Failed to create question';

@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 .questions {
-    background-color: #1c1d26;
+    background-color: #ffffff; 
     display: flex;
     margin-top: 25vh;
     justify-content: space-evenly;
     height: 100vh;
-    color:#ffff;
+    color:black;
     font-family: "Montserrat";
     font-weight: 100;
     font-size: 20px;
@@ -26,8 +26,14 @@
 
 h1 {
   font-family: "Montserrat";
-  font-weight: 100;
-  font-size: 40px;
+  font-weight: 200;
+  font-size: 30px;
+}
+
+h2 {
+  font-family: "Montserrat";
+  font-weight: 200;
+  font-size: 25px;
 }
 
 .questions ul {
@@ -36,6 +42,7 @@ h1 {
   width: 40vh;
   list-style-type: none;
 }
+
 
 .questions form {
     display: flex;
@@ -48,7 +55,14 @@ h1 {
     font-size: 1.2em;
     color: #333;
   }
+
+
+  mat-expansion-panel {
+    margin-bottom: 16px; /* Adjust the value as needed */
+  }
   
+  
+
   .questions input, .questions textarea {
     width: 100%;
     padding: 10px;
@@ -88,7 +102,7 @@ h1 {
   .questions li {
     padding: 10px;
     background-color: #fff;
-    border: 1px solid #ddd;
+    border: 1px solid black;
     font-family: "Montserrat";
     border-radius: 4px;
     margin-bottom: 10px;
